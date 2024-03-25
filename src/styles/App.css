@@ -1,1 +1,10 @@
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: auto 0;
+}
 
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
