@@ -1,9 +1,7 @@
 import React from 'react';
-import { useState, useCallback, useMemo, useRef } from 'react';
+import { useState } from 'react';
 import '../styles/df.css';
 import AdaptiveSelect from './AdaptiveSelect';
-import { toHaveAccessibleDescription } from '@testing-library/jest-dom/dist/matchers';
-
 
 export default function SubsCreateModal() {
   const [choosenOptions, setChoosenOptions] = useState([]);
@@ -25,7 +23,7 @@ export default function SubsCreateModal() {
     };
 
     let jsonedSub = JSON.stringify(newSubscription)
-    console.log(jsonedSub);
+    console.log(`Отправится на сервер: ${jsonedSub}`);
   };
 
   return (
@@ -45,10 +43,10 @@ export default function SubsCreateModal() {
 
           <label htmlFor="period" className="form-label">Период списания
             <select className="form-select">
-              <option>2</option>
-              <option>12</option>
-              <option>14</option>
-              <option>25</option>
+              <option value={"2 дня"}>2</option>
+              <option value={"12 дней"}>12</option>
+              <option value={"14 дней"}>14</option>
+              <option value={"24 дня"}>24</option>
             </select>
           </label>
           <button className="btn btn-dark sumbit-button" type="submit">Создать</button>
@@ -56,4 +54,4 @@ export default function SubsCreateModal() {
       </div>
     </div>
   );
-}
+};
