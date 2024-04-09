@@ -23,9 +23,9 @@ export default function SubsEditPageModal() {
     };
 
     let updatedSubscriptionJSON = JSON.stringify(updatedSubscription);
+ 
+    //тут вызывает API для отправки, ключ и токены будут браться из общего useContext, помещаться в заголовки. 
 
-    //надо написать, чтобы не было перерендера. 
-    
     console.log(`updatedSubs: ${updatedSubscriptionJSON}`);
   }
   

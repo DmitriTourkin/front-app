@@ -24,6 +24,9 @@ export default function SubsCreateModal() {
 
     let jsonedSub = JSON.stringify(newSubscription)
     console.log(`Отправится на сервер: ${jsonedSub}`);
+
+    //тут вызывает API для отправки. Ключ и токен будут браться из общего useContext, помещаться в заголовки.
+
   };
 
   return (
@@ -43,7 +46,7 @@ export default function SubsCreateModal() {
 
           <label htmlFor="period" className="form-label">Период списания
             <select className="form-select">
-              <option value={"2 дня"}>2</option>
+              <option value={"2 дня"}>2</option> 
               <option value={"12 дней"}>12</option>
               <option value={"14 дней"}>14</option>
               <option value={"24 дня"}>24</option>

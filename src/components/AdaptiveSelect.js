@@ -1,8 +1,8 @@
 import '../components/adaptive-select.css'; 
-import { useState, useEffect, useRef, useMemo} from 'react';
+import { useState, useRef, useMemo} from 'react';
 
 export default function AdaptiveSelect(props) {
-  const [categoriesData, setData] = useState([]); //категории с сервера
+  const [categoriesData, setData] = useState([]); //категории с сервера через API, чтобы использовать id, value; 
 
   const [showed, setShowed] = useState(false);
   const [choosenOptions, setChoosenOptions] = [props.choosenOptions, props.setChoosenOptions];
@@ -37,7 +37,6 @@ export default function AdaptiveSelect(props) {
           })}
         </div>
         <div className={`select-body ${showed ? 'show' : ''}`} ref={selectBodyRef}>
-
         <div className="select-item" onClick={() => handleCheckboxChange("Значение 1")}>
           <div className="select-item-body">
             <input type="checkbox" className="hidden-checkbox" checked={choosenOptions.includes("Значение 1")}/>
