@@ -1,29 +1,34 @@
 import React from 'react';
 import { useState, useCallback, useMemo, useRef } from 'react';
 import '../styles/df.css';
+import AdaptiveSelect from './AdaptiveSelect';
 
 
-export default function SubsCreate() {
+export default function SubsCreateModal() {
+  const [choosenOptions, setChoosenOptions] = useState([]);
+
   const handleSubmitButton = (e) => {
     e.preventDefault();
+    let newSubscription = {
+      name: e.target.form.elements['name'],
+      category: [choosenOptions],
+      price: e.target.element['price'],
+      data: e.target.element['data'], 
+      period: e.target.element['period'],
+    };
 
-  }
+    console.log(newSubscription);
+  };
 
   return (
     <div className="form-wrapper">
       <div class="form-container">
         <form className="subs-form">
           <input className="subscription-title-input" placeholder="Название подписки"></input>
-
           <div>
             <label>Категории подписки</label>
-            <select className="form-select">
-                <option value="1">Музыкальная</option>
-                <option value="2">Образование</option>
-                <option value="3">Искусство</option>
-            </select>
+            <AdaptiveSelect choosenOptions = {choosenOptions} setChoosenOptions = {setChoosenOptions}/>
           </div>
-          
           <div>
             <label for="price" className="form-label" type="number">Цена</label>
             <input id="price" name="price" className="form-control" type="price"></input>
@@ -33,10 +38,15 @@ export default function SubsCreate() {
             <input id="date" name="date" className="form-control" type="datetime-local"></input>
           </div>
           <div>
-            <label for="time-period" className="form-label" type="">Период списания</label>
-            <input id="time-period" name="time-period" className="form-control" type="date"></input>
+            <label for="period" className="form-label">Период списания</label>
+            <select className='form-select'>
+              <option>2</option>
+              <option>12</option>
+              <option>14</option>
+              <option>25</option>
+            </select>
           </div>
-          <button className="btn btn-dark sumbit-button" type="submit" onClick={() => handleSubmitButton}>Создать</button>
+          <button className="btn btn-dark sumbit-button" type="submit" onClick={(e) => handleSubmitButton(e)}>Создать</button>
         </form>
       </div>
     </div>
